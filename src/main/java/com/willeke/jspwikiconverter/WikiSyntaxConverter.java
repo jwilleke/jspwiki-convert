@@ -109,8 +109,8 @@ public class WikiSyntaxConverter {
         context.setVariable(Context.VAR_WYSIWYG_EDITOR_MODE, Boolean.TRUE);
         final String pagedata = jspw.getManager(PageManager.class).getPureText(p.getName(), p.getVersion());
         
-        final String html = jspw.getManager(RenderingManager.class).textToHTML(context, pagedata, null, null, null,            false,            false);
-        System.out.println("HTML content for page " + p.getName() + ": " + html); // Debug output
+        final String html = jspw.getManager(RenderingManager.class).textToHTML(context, pagedata, null, null, null, false, false);
+        //System.out.println("HTML content for page " + p.getName() + ": " + html); // Debug output
         final String syntax = new HtmlStringToWikiTranslator(md).translate(html);
         
         final Context contextMD = Wiki.context().create(md, p);
